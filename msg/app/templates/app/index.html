@@ -1,0 +1,18 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<input
+    class="btn btn-primary"
+    type="submit"
+    value="留言"
+    onclick="location.href={% url 'Write_post' %}"
+>
+<h1>首頁: {{position}}</h1>
+{% for post in posts %}
+<div class="post">
+    <a href="post/{{ post.id }}/">{{ post.username }}</a>
+    {{ post.date }}
+    <p>{{ post.txt|linebreaksbr }}</p>
+</div>
+{% endfor %}
+{% endblock  %}

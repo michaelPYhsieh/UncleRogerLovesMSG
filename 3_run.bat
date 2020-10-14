@@ -1,0 +1,1 @@
+python msg/manage.py runserver

@@ -1,0 +1,16 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<input
+    class="btn btn-primary"
+    type="submit"
+    value="回留言板"
+    onclick="location.href='/'"
+>
+<h1>註冊: {{position}}</h1>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input class="btn btn-success" type="submit" value="送出註冊!!!!!">
+</form>
+{% endblock  %}

@@ -1,0 +1,21 @@
+{% extends 'app/base.html' %}
+{% block content %}
+<input
+    class="btn btn-primary"
+    type="submit"
+    value="回留言板"
+    onclick="location.href='/'"
+>
+<input
+    class="btn btn-primary"
+    type="submit"
+    value="留言"
+    onclick="location.href={% url 'Write_post' %}"
+>
+<h1>單一留言檢視: {{ position }}</h1>
+<h3>留言者: {{ post.username }}</h3>
+<ul>
+    <li>留言時間: {{ post.date }}</li>
+    <li>留言內容: {{ post.txt }}</li>
+</ul>
+{% endblock %}

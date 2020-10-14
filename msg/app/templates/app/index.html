@@ -1,13 +1,11 @@
 {% extends 'app/base.html' %}
 
 {% block content %}
-<input
-    class="btn btn-primary"
-    type="submit"
-    value="留言"
-    onclick="location.href={% url 'Write_post' %}"
->
+<input class="btn btn-primary" type="submit" value="留言" onclick="location.href={% url 'Write_post' %}">
 <h1>首頁: {{position}}</h1>
+{% if not posts%}
+快來留言
+{% endif %}
 {% for post in posts %}
 <div class="post">
     <a href="post/{{ post.id }}/">{{ post.username }}</a>

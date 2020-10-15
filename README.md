@@ -1,3 +1,9 @@
+:monocle_face:
+This is a tiny message board demo 
+:monocle_face:
+made by Python3.7 & Django 2.1.15
+:monocle_face:
+
 # clone
 * git clone _
 

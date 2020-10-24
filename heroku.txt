@@ -1,7 +1,11 @@
-git push heroku master
-https://dashboard.heroku.com/apps/blooming-harbor-90044/deploy/heroku-git
 
 pip install dj-database-url gunicorn dj-static
 
 pip freeze > requirements.txt
 
+heroku config:set DJANGO_SETTINGS_MODULE=msg.production_settings
+
+
+
+git push heroku master
+https://dashboard.heroku.com/apps/blooming-harbor-90044/deploy/heroku-git

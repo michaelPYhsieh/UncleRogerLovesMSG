@@ -9,6 +9,7 @@ verify_ssl = true
 pytz = "==2020.1"
 Django = "==2.1.15"
 django-heroku = "*"
+dj-static = "*"
 
 [requires]
 python_version = "3.7"

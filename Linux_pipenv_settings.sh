@@ -15,6 +15,7 @@ pipenv_shell______=$pipenv____________"shell"
 pipenvrun_________=$pipenv____________"run "
 
 pipenv_run_manage_=$pipenvrun_________"python $projname/manage.py "
+# pipenv_run_manage_=$pipenvrun_________"python manage.py "
 
 
 pipenv_rm_________=$pipenv____________"--rm" 
@@ -37,31 +38,57 @@ echo 5: create_super_user: ub1/ub1
 echo ""
 
 
-
-
-
-read -p " which ? " step
-echo ""
-case $step in 
-    0 ) 
-        echo $pipenv_rm_________ | bash -x
-        ;;
-    1 )
-        echo $pipenv_install____ | bash -x
-        ;;
-    2 )
-        echo $makemigrations____ | bash -x
-        echo $migrate___________ | bash -x
-        ;;
-    4 )
-        echo $qcluster__________ | bash -x 
-        ;;
-    3 )
-        echo $runserver_________ | bash -x
-        ;;
-    5 )
-        echo $create_super_user_ | bash -x
-        ;;
-    * )
-        echo "       ? \e[30;47mWHAT\e[0m ?"
-esac
+if [ $1 != "" ]; then
+    for step in `echo "$1" | fold -w1`; do
+        case $step in 
+            0 ) 
+                echo $pipenv_rm_________ | bash -x
+                ;;
+            1 )
+                echo $pipenv_install____ | bash -x
+                ;;
+            2 )
+                echo $makemigrations____ | bash -x
+                echo $migrate___________ | bash -x
+                ;;
+            4 )
+                echo $qcluster__________ | bash -x 
+                ;;
+            3 )
+                echo $runserver_________ | bash -x
+                ;;
+            5 )
+                echo $create_super_user_ | bash -x
+                ;;
+            * )
+                echo "       ? \e[30;47mWHAT\e[0m ?"
+                
+        esac
+    done
+else
+    read -p " which ? " step
+    echo ""
+    case $step in 
+        0 ) 
+            echo $pipenv_rm_________ | bash -x
+            ;;
+        1 )
+            echo $pipenv_install____ | bash -x
+            ;;
+        2 )
+            echo $makemigrations____ | bash -x
+            echo $migrate___________ | bash -x
+            ;;
+        4 )
+            echo $qcluster__________ | bash -x 
+            ;;
+        3 )
+            echo $runserver_________ | bash -x
+            ;;
+        5 )
+            echo $create_super_user_ | bash -x
+            ;;
+        * )
+            echo "       ? \e[30;47mWHAT\e[0m ?"
+    esac
+fi
